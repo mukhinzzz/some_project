@@ -1,6 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
-//СТИЛЕЙ ПОКА НЕТ (если их не будет, удалить строку выше вместе с файлом App.css)
 
 import { Header } from "../Header/Header";
 import { MainPage } from "../MainPage/MainPage";
@@ -10,6 +8,9 @@ import { FavoritesPage } from "../FavoritesPage/FavoritesPage";
 import { HistoryPage } from "../HistoryPage/HistoryPage";
 import { FilmInfoPage } from "../FilmInfoPage/FilmInfoPage";
 import { SearchResultsPage } from "../SearchResultsPage/SearchResultsPage";
+
+import "./App.css";
+//СТИЛЕЙ ПОКА НЕТ (если их не будет, удалить строку выше вместе с файлом App.css)
 
 function App() {
   return (
