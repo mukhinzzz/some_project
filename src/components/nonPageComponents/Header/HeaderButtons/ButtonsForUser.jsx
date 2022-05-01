@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import { Button, Space } from "antd";
 
-import { useLogOut } from "../../../hooks/useLogOut";
+import { useLogOut } from "../../../../hooks/useLogOut";
 
 function ButtonsForUser() {
   const logOut = useLogOut();
