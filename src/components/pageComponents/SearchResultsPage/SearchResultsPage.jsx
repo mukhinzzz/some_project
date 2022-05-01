@@ -31,7 +31,6 @@ function SearchResultsPage() {
       .then((data) => {
         dispatch(setMoviesSearchData(data));
         dispatch(setSearchingFalse());
-        console.log("responce was got");
       });
   }, [query, pageNumber]);
 
