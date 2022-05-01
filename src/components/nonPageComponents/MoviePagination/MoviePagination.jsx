@@ -2,6 +2,7 @@ import { Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./MoviePagination.css";
 
 function MoviePagination() {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ function MoviePagination() {
   }
 
   return (
-    <div className="pagination">
+    <div className="pagination-container">
       <Pagination
-        // responsive
+        responsive
         hideOnSinglePage={true}
         onChange={(desiredPage) => onPageTransition(desiredPage)}
         total={totalResults}
