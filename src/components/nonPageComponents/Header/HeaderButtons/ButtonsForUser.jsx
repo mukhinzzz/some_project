@@ -2,10 +2,24 @@ import { Link } from "react-router-dom";
 
 import { Button, Space } from "antd";
 
-import { useLogOut } from "../../../../hooks/useLogOut";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { setStatusNotLoggedIn } from "../../../../features/userAuth/userAuthSlice";
 
 function ButtonsForUser() {
-  const logOut = useLogOut();
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  function logOut() {
+    dispatch(setStatusNotLoggedIn());
+    localStorage.setItem("isLoggedIn", false);
+
+    alert("You logged out");
+
+    navigate("/");
+  }
 
   return (
     <Space>
@@ -22,7 +36,5 @@ function ButtonsForUser() {
     </Space>
   );
 }
-
-//ПОПРОБОВАТЬ ИМПОРТИРОВАННЫЙ ХУК USELOGOUT, ЕСЛИ ОН НЕ ЗАРАБОТАЕТ - ПЕРЕНЕСТИ ФУНКЦИЮ ВНУТРЬ ЭТОГО ФАЙЛА
 
 export { ButtonsForUser };

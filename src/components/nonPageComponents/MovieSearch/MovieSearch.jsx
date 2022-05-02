@@ -16,7 +16,7 @@ function MovieSearch() {
 
   function makeSearch() {
     if (isLoggedIn) {
-      localStorage.setItem(`${userName}search${searchValue}`);
+      localStorage.setItem(`${userName}search${searchValue}`, searchValue);
     }
     navigate(`/search/${searchValue}/1`);
   }
