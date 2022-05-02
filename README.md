@@ -14,10 +14,7 @@
 
 ---
 
-???
-Зачем в компонентах ButtonsForUser и ButtonsForGuest нужны пропсы 'key'?
-
-Этот пропс - требование Ant.design
+---
 
 ---
 

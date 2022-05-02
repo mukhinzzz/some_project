@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
@@ -7,6 +9,9 @@ const { Meta } = Card;
 
 function MovieCard(props) {
   let { title, poster, id } = props;
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   return (
     <Card
       hoverable
@@ -25,7 +30,7 @@ function MovieCard(props) {
       <Meta
         title={title}
         description={<Link to={`/film/${id}`}>See more...</Link>}
-        avatar={<FavoriteIcon id={id} title={title} />}
+        avatar={isLoggedIn ? <FavoriteIcon id={id} title={title} /> : ""}
       />
     </Card>
   );

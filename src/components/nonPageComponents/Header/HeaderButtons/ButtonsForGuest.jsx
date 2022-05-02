@@ -5,11 +5,11 @@ function ButtonsForGuest() {
   return (
     <Space>
       <Link to="/signin">
-        <Button key="2">Log In</Button>
+        <Button>Log In</Button>
       </Link>
 
       <Link to="/signup">
-        <Button key="1">Sign Up</Button>
+        <Button>Sign Up</Button>
       </Link>
     </Space>
   );

@@ -10,17 +10,19 @@ function ButtonsForUser() {
   return (
     <Space>
       <Link to="/favorites">
-        <Button key="3">Favorites</Button>
+        <Button>Favorites</Button>
       </Link>
       <Link to="/history">
-        <Button key="4">History</Button>
+        <Button>History</Button>
       </Link>
-      <Button key="5" type="primary" onClick={() => logOut()}>
+      <Button type="primary" onClick={() => logOut()}>
         Log Out
       </Button>
       <span>{localStorage.getItem("userName")}</span>
     </Space>
   );
 }
+
+//ПОПРОБОВАТЬ ИМПОРТИРОВАННЫЙ ХУК USELOGOUT, ЕСЛИ ОН НЕ ЗАРАБОТАЕТ - ПЕРЕНЕСТИ ФУНКЦИЮ ВНУТРЬ ЭТОГО ФАЙЛА
 
 export { ButtonsForUser };

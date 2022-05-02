@@ -1,28 +1,28 @@
+import { useState } from "react";
+
 import { StarOutlined } from "@ant-design/icons";
 import { StarFilled } from "@ant-design/icons";
-import { useState, useEffect } from "react";
 
 function FavoriteIcon(props) {
   const { id, title } = props;
   const userName = localStorage.getItem("userName");
-  let [isInFavorites, toggleFavorites] = useState(false);
 
-  useEffect(() =>
-    toggleFavorites(
-      (isInFavorites = Boolean(localStorage.getItem(`${userName}FavName${id}`)))
-    )
+  const startFavoritesState = Boolean(
+    localStorage.getItem(`${userName}FavName${id}`)
   );
+
+  let [isInFavorites, toggleFavorites] = useState(startFavoritesState);
 
   function addToFavorites() {
     localStorage.setItem(`${userName}FavName${id}`, title);
     localStorage.setItem(`${userName}FavId${title}`, id);
-    toggleFavorites((isInFavorites = true));
+    toggleFavorites(true);
   }
 
   function removeFromFavorites() {
     localStorage.removeItem(`${userName}FavName${id}`);
     localStorage.removeItem(`${userName}FavId${title}`);
-    toggleFavorites((isInFavorites = false));
+    toggleFavorites(false);
   }
 
   return isInFavorites ? (
@@ -30,8 +30,6 @@ function FavoriteIcon(props) {
   ) : (
     <StarOutlined onClick={() => addToFavorites()} />
   );
-  //В зависимости от состояния isInFavorites выводить либо StarOutlined, либо StarFilled
-  //localStorage.getItem(`${userName}Fav${id}`)
 }
 
 export { FavoriteIcon };
