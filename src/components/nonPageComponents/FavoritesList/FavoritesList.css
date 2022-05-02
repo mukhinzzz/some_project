@@ -1,0 +1,12 @@
+.favorites-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  margin: 50px;
+}
+
+.favorite-link {
+  background-color: white;
+  border-radius: 5%;
+  padding: 10px;
+}
