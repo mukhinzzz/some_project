@@ -15,7 +15,7 @@ function HistoryList() {
   console.log(searchValues);
 
   let historyCards = searchValues.map((value) => (
-    <Link to={`/search/${value}`}>
+    <Link to={`/search/${value}/1`}>
       <p className="history-link">{value}</p>
     </Link>
   ));

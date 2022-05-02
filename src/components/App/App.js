@@ -6,7 +6,7 @@ import { SignInPage } from "../pageComponents/SignInPage/SignInPage";
 import { SignUpPage } from "../pageComponents/SignUpPage/SignUpPage";
 import { FavoritesPage } from "../pageComponents/FavoritesPage/FavoritesPage";
 import { HistoryPage } from "../pageComponents/HistoryPage/HistoryPage";
-import { FilmInfoPage } from "../pageComponents/FilmInfoPage/FilmInfoPage";
+import { MovieInfoPage } from "../pageComponents/MovieInfoPage/MovieInfoPage";
 import { SearchResultsPage } from "../pageComponents/SearchResultsPage/SearchResultsPage";
 
 import "./App.css";
@@ -23,7 +23,7 @@ function App() {
         <Route path="signup" element={<SignUpPage />} />
         <Route path="favorites" element={<FavoritesPage />} />
         <Route path="history" element={<HistoryPage />} />
-        <Route path="film/:id" element={<FilmInfoPage />} />
+        <Route path="movie/:id" element={<MovieInfoPage />} />
         <Route
           path="search/:query/:pageNumber"
           element={<SearchResultsPage />}

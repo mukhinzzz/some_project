@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
-import "./MovieCard.css";
 
 const { Meta } = Card;
 
@@ -29,8 +28,14 @@ function MovieCard(props) {
     >
       <Meta
         title={title}
-        description={<Link to={`/film/${id}`}>See more...</Link>}
-        avatar={isLoggedIn ? <FavoriteIcon id={id} title={title} /> : ""}
+        description={<Link to={`/movie/${id}`}>See more...</Link>}
+        avatar={
+          isLoggedIn ? (
+            <FavoriteIcon id={id} title={title} poster={poster} />
+          ) : (
+            ""
+          )
+        }
       />
     </Card>
   );

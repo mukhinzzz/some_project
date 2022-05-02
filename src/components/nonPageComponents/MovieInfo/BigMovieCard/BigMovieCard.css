@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.text-background {
+  background-color: white;
+  min-width: 325px;
+  max-width: 400px;
+  padding-left: 20px;
+  border-radius: 3%;
+}
+
+.film-header {
+  text-align: center;
+}
+
+.film-poster {
+  border-radius: 3%;
+}

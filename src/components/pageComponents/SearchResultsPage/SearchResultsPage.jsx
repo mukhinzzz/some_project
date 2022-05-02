@@ -10,7 +10,10 @@ import { MovieSearch } from "../../nonPageComponents/MovieSearch/MovieSearch";
 
 import { MovieContainer } from "../../nonPageComponents/MovieContainer/MovieContainer";
 
-import { setSearchingFalse } from "../../../features/search/searchSlice";
+import {
+  setSearchingFalse,
+  setSearchingTrue,
+} from "../../../features/search/searchSlice";
 
 import { setMoviesSearchData } from "../../../features/moviesData/moviesDataSlice";
 
@@ -24,6 +27,7 @@ function SearchResultsPage() {
   const { query, pageNumber } = useParams();
 
   useEffect(() => {
+    dispatch(setSearchingTrue());
     fetch(
       `http://www.omdbapi.com/?apikey=b668f6de&s=${query}&page=${pageNumber}`
     )
