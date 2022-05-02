@@ -12,7 +12,8 @@ function MovieSearch() {
 
   const searchValue = useSelector((state) => state.search.searchValue);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const userName = useSelector((state) => state.auth.userName);
+  const userName = localStorage.getItem("userName");
+  // const userName = useSelector((state) => state.auth.userName);
 
   function makeSearch() {
     if (isLoggedIn) {
