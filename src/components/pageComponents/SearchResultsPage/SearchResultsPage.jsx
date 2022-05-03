@@ -41,7 +41,7 @@ function SearchResultsPage() {
   }, [query, pageNumber]);
 
   return isSearching ? (
-    <h2>Loading...</h2>
+    <h1 style={{ color: "white" }}>Loading...</h1>
   ) : (
     <>
       <MovieSearch /> <MovieContainer />

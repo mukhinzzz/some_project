@@ -40,8 +40,10 @@ function MovieSearch() {
     fetch(`http://www.omdbapi.com/?apikey=b668f6de&s=${e.target.value}&page=1`)
       .then((response) => response.json())
       .then((data) => {
+        // if (data.Response) {
         dispatch(changeFastSearchData(data));
         dispatch(setFastSearchDataReceived());
+        // }
       });
   }
 
