@@ -17,12 +17,14 @@ import {
 
 import { setMoviesSearchData } from "../../../features/moviesData/moviesDataSlice";
 
+import { setFastSearchDataNotReceived } from "../../../features/search/searchSlice";
+
 import "./SearchResultsPage.css";
 
 function SearchResultsPage() {
-  const isSearching = useSelector((state) => state.search.isSearchingNow);
-
   const dispatch = useDispatch();
+  // const fastSearchReset = dispatch(setFastSearchDataNotReceived());
+  const isSearching = useSelector((state) => state.search.isSearchingNow);
 
   const { query, pageNumber } = useParams();
 

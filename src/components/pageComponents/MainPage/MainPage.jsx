@@ -1,8 +1,14 @@
 import { MovieSearch } from "../../nonPageComponents/MovieSearch/MovieSearch";
 
+import { useDispatch } from "react-redux";
+
+import { setFastSearchDataNotReceived } from "../../../features/search/searchSlice";
+
 import "./MainPage.css";
 
 function MainPage() {
+  // const dispatch = useDispatch();
+  // const fastSearchReset = dispatch(setFastSearchDataNotReceived());
   return (
     <>
       <MovieSearch />

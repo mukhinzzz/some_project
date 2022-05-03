@@ -54,6 +54,10 @@ function MovieSearch() {
     navigate(`/search/${searchValue}/1`);
   }
 
+  useEffect(() => {
+    return () => dispatch(setFastSearchDataNotReceived());
+  }, []);
+
   console.log(isFastSearchDataReceived);
 
   return (
@@ -64,6 +68,7 @@ function MovieSearch() {
         onChange={debouncedQueryUpdate}
         onSearch={() => {
           makeSearch();
+          dispatch(setFastSearchDataNotReceived());
         }}
       />
       {isFastSearchDataReceived ? <FastSearchResults /> : ""}
