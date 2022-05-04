@@ -32,22 +32,20 @@ function MovieSearch() {
   // const userName = useSelector((state) => state.auth.userName);
 
   function updateQuery(e) {
-    dispatch(changeSearchValue(e.target.value));
-    console.log("on change");
-
     // dispatch(setSearchingTrue());
+    dispatch(changeSearchValue(e.target.value));
 
     fetch(`http://www.omdbapi.com/?apikey=b668f6de&s=${e.target.value}&page=1`)
       .then((response) => response.json())
       .then((data) => {
-        // if (data.Response) {
-        dispatch(changeFastSearchData(data));
-        dispatch(setFastSearchDataReceived());
-        // }
+        if (data.Search) {
+          dispatch(changeFastSearchData(data));
+          dispatch(setFastSearchDataReceived());
+        }
       });
   }
 
-  const debouncedQueryUpdate = debounce(updateQuery, 1000);
+  const debouncedQueryUpdate = debounce(updateQuery, 300);
 
   function makeSearch() {
     if (isLoggedIn) {
@@ -60,17 +58,18 @@ function MovieSearch() {
     return () => dispatch(setFastSearchDataNotReceived());
   }, []);
 
-  console.log(isFastSearchDataReceived);
-
   return (
     <>
       <Search
         placeholder="Search for a movie..."
         enterButton
-        onChange={debouncedQueryUpdate}
+        onChange={(e) => {
+          debouncedQueryUpdate(e);
+        }}
         onSearch={() => {
+          // dispatch(setFastSearchDataNotReceived());
+          debouncedQueryUpdate.cancel();
           makeSearch();
-          dispatch(setFastSearchDataNotReceived());
         }}
       />
       {isFastSearchDataReceived ? <FastSearchResults /> : ""}

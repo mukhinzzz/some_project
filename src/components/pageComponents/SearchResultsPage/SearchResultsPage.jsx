@@ -23,7 +23,7 @@ import "./SearchResultsPage.css";
 
 function SearchResultsPage() {
   const dispatch = useDispatch();
-  // const fastSearchReset = dispatch(setFastSearchDataNotReceived());
+  const fastSearchReset = dispatch(setFastSearchDataNotReceived());
   const isSearching = useSelector((state) => state.search.isSearchingNow);
 
   const { query, pageNumber } = useParams();

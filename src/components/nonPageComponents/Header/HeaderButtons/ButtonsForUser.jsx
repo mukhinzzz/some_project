@@ -2,24 +2,10 @@ import { Link } from "react-router-dom";
 
 import { Button, Space } from "antd";
 
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
-import { setStatusNotLoggedIn } from "../../../../features/userAuth/userAuthSlice";
+import { useLogOut } from "../../../../hooks/useLogout";
 
 function ButtonsForUser() {
-  const dispatch = useDispatch();
-
-  const navigate = useNavigate();
-
-  function logOut() {
-    dispatch(setStatusNotLoggedIn());
-    localStorage.setItem("isLoggedIn", false);
-
-    alert("You logged out");
-
-    navigate("/");
-  }
+  let logOut = useLogOut();
 
   return (
     <Space>
