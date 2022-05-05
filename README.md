@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+???
+На некоторых компонентах применены инлайн-стили (например, цвет Header'a). Почему?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+На компонентах из библиотеки Ant.Design задание стилей через className не всегда работает. Но зато все работает через инлайн-стили. Я знаю, использование инлайн-стилей - это bad practice и я постараюсь решить эту проблему позже.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+???
+Почему компонент поиска называется MovieSearch, когда его правильнее было бы назвать просто Search?
 
-### `npm start`
+Компонент Search уже зарезервирован библиотекой Ant.design и так как я его импортирую в свой компонент поиска, мне пришлось выбрать другое название.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Такая же ситуация с компонентами Pagination и MoviePagination**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ИЗВЕСТНЫЕ ПРОБЛЕМЫ:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Пагинация ведет себя странно. При большом количестве результатов поиска она выводит слишком большое количество кнопок перехода на страницы. Выглядит вырвиглазно и не фиксится переключением в size='small' и включением функции responsive={true}. При этом функционал отрабатывает исправно.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Так как пагинация взята из библиотеки Ant.design, исправление проблемы может закончиться полным переписыванием пагинации на свою собственную :)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Поэтому пока оставлю этот косметический дефект и займусь им уже после добавления остального функционала.
