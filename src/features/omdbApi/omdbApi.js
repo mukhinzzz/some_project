@@ -4,7 +4,7 @@ const API_KEY = process.env.API_KEY;
 export const omdbApi = createApi({
   reducerPath: "omdbApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `http://www.omdbapi.com/`,
+    baseUrl: `https://www.omdbapi.com/`,
   }),
   endpoints: (build) => ({
     getMovie: build.query({

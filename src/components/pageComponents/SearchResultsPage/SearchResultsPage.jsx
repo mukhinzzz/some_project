@@ -26,7 +26,7 @@ function SearchResultsPage() {
   useEffect(() => {
     dispatch(setSearchingTrue());
     fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&page=${pageNumber}`
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&page=${pageNumber}`
     )
       .then((response) => response.json())
       .then((data) => {

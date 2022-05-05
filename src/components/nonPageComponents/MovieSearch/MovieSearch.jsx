@@ -29,7 +29,7 @@ function MovieSearch() {
 
   function updateQuery(e) {
     fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${e.target.value}&page=1`
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${e.target.value}&page=1`
     )
       .then((response) => response.json())
       .then((data) => {
