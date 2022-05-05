@@ -18,7 +18,7 @@ function MovieCard(props) {
 
   const { placeholder } = useContext(AppContext);
 
-  console.log(placeholder);
+  // console.log(placeholder);
 
   MovieCard.propTypes = {
     title: PropTypes.string.isRequired,

@@ -1,8 +1,9 @@
 import "./BigMovieCard.css";
 import { useSelector } from "react-redux";
 
-function BigMovieCard() {
-  const filmData = useSelector((state) => state.movies.chosenMovieInfo);
+function BigMovieCard(props) {
+  // const filmData = useSelector((state) => state.movies.chosenMovieInfo);
+  // console.log(props);
   const {
     Title,
     Year,
@@ -16,7 +17,7 @@ function BigMovieCard() {
     imdbRating,
     Awards,
     Country,
-  } = filmData;
+  } = props.filmData;
   return (
     <div className="container">
       <div>

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useEffect } from "react";
 
 import { setChosenMovieInfo } from "../../../features/moviesData/moviesDataSlice";
 import {
@@ -10,33 +10,53 @@ import {
 
 import { BigMovieCard } from "./BigMovieCard/BigMovieCard";
 
+import { useGetMovieQuery } from "../../../features/omdbApi/omdbApi";
+
 function MovieInfo() {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const filmData = useSelector((state) => state.movies.chosenMovieInfo);
-  const isSearching = useSelector((state) => state.search.isSearchingNow);
+  const { data = {}, isSuccess } = useGetMovieQuery(id);
+
+  let response;
+
+  if (isSuccess) {
+    response = <BigMovieCard filmData={data} />;
+  } else {
+    response = <h1 style={{ color: "white" }}>Загрузка...</h1>;
+  }
+
+  // const filmData = useSelector((state) => state.movies.chosenMovieInfo);
+  // const isSearching = useSelector((state) => state.search.isSearchingNow);
 
   //   const turnOnSearching = dispatch(setSearchingTrue());
 
-  let renderedInfo = isSearching ? (
-    <h1 style={{ color: "white" }}>Загрузка...</h1>
-  ) : (
-    <BigMovieCard />
-  );
+  // console.log(data);
 
-  useEffect(() => {
-    dispatch(setSearchingTrue());
+  // let renderedInfo = isLoading ? (
+  //   <h1 style={{ color: "white" }}>Загрузка...</h1>
+  // ) : (
+  //   <BigMovieCard filmData={filmInfoResponse} />
+  // );
 
-    fetch(`http://www.omdbapi.com/?apikey=b668f6de&i=${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(setChosenMovieInfo(data));
-        dispatch(setSearchingFalse());
-      });
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setSearchingTrue());
 
-  return renderedInfo;
+  //   fetch(`http://www.omdbapi.com/?apikey=b668f6de&i=${id}`)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       dispatch(setChosenMovieInfo(data));
+  //       dispatch(setSearchingFalse());
+  //     });
+  // }, []);
+
+  // return !isSuccess ? (
+  //   <h1 style={{ color: "white" }}>Загрузка...</h1>
+  // ) : (
+  //   <BigMovieCard filmData={filmInfoResponse} />
+  // );
+
+  return response;
 }
 
 export { MovieInfo };
