@@ -1,9 +1,16 @@
 import "./BigMovieCard.css";
 import { useSelector } from "react-redux";
 
+import PropTypes from "prop-types";
+
 function BigMovieCard(props) {
   // const filmData = useSelector((state) => state.movies.chosenMovieInfo);
   // console.log(props);
+
+  BigMovieCard.propTypes = {
+    filmData: PropTypes.object.isRequired,
+  };
+
   const {
     Title,
     Year,
