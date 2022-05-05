@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import "./FavoritesList.css";
+
+import { AppContext } from "../AppContext/AppContext";
 
 import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
 
 import { Card } from "antd";
-
 const { Meta } = Card;
 
 function FavoritesList() {
@@ -13,6 +15,8 @@ function FavoritesList() {
 
   let favoriteKeys = keys.filter((key) => key.startsWith(`${userName}FavName`));
   let favoriteValues = favoriteKeys.map((key) => localStorage.getItem(key));
+
+  const { placeholder } = useContext(AppContext);
 
   let favoriteCards = favoriteValues.map((value) => {
     const identificator = localStorage.getItem(`${userName}FavId${value}`);
@@ -23,14 +27,7 @@ function FavoritesList() {
         hoverable
         style={{ width: 240 }}
         cover={
-          <img
-            alt="poster"
-            src={
-              poster == "N/A"
-                ? "https://imgholder.ru/240x350/8493a8/adb9ca&text=NO+POSTER&font=kelson"
-                : poster
-            }
-          />
+          <img alt="poster" src={poster === "N/A" ? placeholder : poster} />
         }
       >
         <Meta
@@ -48,12 +45,3 @@ function FavoritesList() {
 }
 
 export { FavoritesList };
-
-// (
-//   <>
-//     <img src={poster} alt="poster" />
-//     <Link to={`/movie/${identificator}`}>
-//       <p className="favorite-link">{value}</p>
-//     </Link>
-//   </>
-// );

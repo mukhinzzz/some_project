@@ -1,8 +1,3 @@
-/* .fastsearch-container {
-  display: flex;
-  justify-content: space-between;
-} */
-
 .fastsearch-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

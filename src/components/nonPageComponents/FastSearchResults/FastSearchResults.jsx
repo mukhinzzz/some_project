@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { MovieCard } from "../MovieCard/MovieCard";
-
-import { useSelector } from "react-redux";
 
 import "./FastSearchResults.css";
 

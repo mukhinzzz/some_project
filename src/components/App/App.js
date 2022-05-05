@@ -12,9 +12,6 @@ import { MovieInfoPage } from "../pageComponents/MovieInfoPage/MovieInfoPage";
 import { SearchResultsPage } from "../pageComponents/SearchResultsPage/SearchResultsPage";
 import { ErrorBoundary } from "../nonPageComponents/ErrorBoundary/ErrorBoundary";
 
-import "./App.css";
-//СТИЛЕЙ ПОКА НЕТ (если их не будет, удалить строку выше вместе с файлом App.css)
-
 function App() {
   const placeholder =
     "https://imgholder.ru/240x350/8493a8/adb9ca&text=NO+POSTER&font=kelson";

@@ -34,7 +34,7 @@ function MovieCard(props) {
         <img
           alt="example"
           src={
-            poster == "N/A" ? placeholder : poster
+            poster === "N/A" ? placeholder : poster
             // ? "https://imgholder.ru/240x350/8493a8/adb9ca&text=NO+POSTER&font=kelson"
           }
         />

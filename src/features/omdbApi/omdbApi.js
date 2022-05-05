@@ -13,5 +13,3 @@ export const omdbApi = createApi({
 });
 
 export const { useGetMovieQuery } = omdbApi;
-
-// getMovie: build.query({ query: () => "&i=tt0133093" }),
