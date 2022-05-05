@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+const API_KEY = process.env.API_KEY;
 
 export const omdbApi = createApi({
   reducerPath: "omdbApi",
@@ -7,7 +8,10 @@ export const omdbApi = createApi({
   }),
   endpoints: (build) => ({
     getMovie: build.query({
-      query: (omdbId) => ({ url: "?apikey=b668f6de", params: `&i=${omdbId}` }),
+      query: (omdbId) => ({
+        url: `?apikey=${API_KEY}`,
+        params: `&i=${omdbId}`,
+      }),
     }),
   }),
 });

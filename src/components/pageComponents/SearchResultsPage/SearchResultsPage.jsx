@@ -15,6 +15,8 @@ import { setMoviesSearchData } from "../../../features/moviesData/moviesDataSlic
 
 import "./SearchResultsPage.css";
 
+const API_KEY = process.env.API_KEY;
+
 function SearchResultsPage() {
   const dispatch = useDispatch();
   const isSearching = useSelector((state) => state.search.isSearchingNow);
@@ -24,7 +26,7 @@ function SearchResultsPage() {
   useEffect(() => {
     dispatch(setSearchingTrue());
     fetch(
-      `http://www.omdbapi.com/?apikey=b668f6de&s=${query}&page=${pageNumber}`
+      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&page=${pageNumber}`
     )
       .then((response) => response.json())
       .then((data) => {

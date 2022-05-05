@@ -14,6 +14,8 @@ import { FastSearchResults } from "../FastSearchResults/FastSearchResults";
 import { Input } from "antd";
 const { Search } = Input;
 
+const API_KEY = process.env.API_KEY;
+
 function MovieSearch() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,7 +28,9 @@ function MovieSearch() {
   );
 
   function updateQuery(e) {
-    fetch(`http://www.omdbapi.com/?apikey=b668f6de&s=${e.target.value}&page=1`)
+    fetch(
+      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${e.target.value}&page=1`
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.Search) {
