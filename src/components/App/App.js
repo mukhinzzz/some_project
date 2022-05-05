@@ -11,6 +11,7 @@ import { HistoryPage } from "../pageComponents/HistoryPage/HistoryPage";
 import { MovieInfoPage } from "../pageComponents/MovieInfoPage/MovieInfoPage";
 import { SearchResultsPage } from "../pageComponents/SearchResultsPage/SearchResultsPage";
 import { ErrorBoundary } from "../nonPageComponents/ErrorBoundary/ErrorBoundary";
+import { PageError } from "../nonPageComponents/PageError/PageError";
 
 function App() {
   const placeholder =
@@ -24,7 +25,7 @@ function App() {
         <ErrorBoundary>
           <Routes>
             <Route path="/" element={<MainPage />} />
-
+            <Route path="*" element={<PageError />} />
             <Route path="signin" element={<SignInPage />} />
             <Route path="signup" element={<SignUpPage />} />
             <Route path="favorites" element={<FavoritesPage />} />
