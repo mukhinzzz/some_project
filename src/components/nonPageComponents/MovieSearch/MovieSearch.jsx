@@ -5,8 +5,6 @@ import debounce from "lodash.debounce";
 
 import {
   changeSearchValue,
-  // setSearchingFalse,
-  setSearchingTrue,
   changeFastSearchData,
   setFastSearchDataNotReceived,
   setFastSearchDataReceived,
@@ -25,14 +23,11 @@ function MovieSearch() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userName = localStorage.getItem("userName");
 
-  let fastSearchData = useSelector((state) => state.search.fastSearchData);
   let isFastSearchDataReceived = useSelector(
     (state) => state.search.isFastSearchDataReceived
   );
-  // const userName = useSelector((state) => state.auth.userName);
 
   function updateQuery(e) {
-    // dispatch(setSearchingTrue());
     dispatch(changeSearchValue(e.target.value));
 
     fetch(`http://www.omdbapi.com/?apikey=b668f6de&s=${e.target.value}&page=1`)
@@ -67,7 +62,6 @@ function MovieSearch() {
           debouncedQueryUpdate(e);
         }}
         onSearch={() => {
-          // dispatch(setFastSearchDataNotReceived());
           debouncedQueryUpdate.cancel();
           makeSearch();
         }}

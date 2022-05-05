@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { MoviePagination } from "../MoviePagination/MoviePagination";
 
+import { MoviePagination } from "../MoviePagination/MoviePagination";
 import { MovieCard } from "../MovieCard/MovieCard";
 
 function MovieContainer() {

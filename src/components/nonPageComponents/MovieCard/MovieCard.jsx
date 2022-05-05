@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import { useContext } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import { Card } from "antd";
-import { Link } from "react-router-dom";
+
 import { FavoriteIcon } from "../FavoriteIcon/FavoriteIcon";
 
 import { AppContext } from "../AppContext/AppContext";
-
-import PropTypes from "prop-types";
 
 const { Meta } = Card;
 
@@ -17,8 +17,6 @@ function MovieCard(props) {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const { placeholder } = useContext(AppContext);
-
-  // console.log(placeholder);
 
   MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
@@ -31,13 +29,7 @@ function MovieCard(props) {
       hoverable
       style={{ width: 240 }}
       cover={
-        <img
-          alt="example"
-          src={
-            poster === "N/A" ? placeholder : poster
-            // ? "https://imgholder.ru/240x350/8493a8/adb9ca&text=NO+POSTER&font=kelson"
-          }
-        />
+        <img alt="example" src={poster === "N/A" ? placeholder : poster} />
       }
     >
       <Meta

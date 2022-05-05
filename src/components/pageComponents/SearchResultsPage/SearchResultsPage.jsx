@@ -1,29 +1,22 @@
 import { useSelector } from "react-redux";
 
 import { useParams } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
-
 import { useEffect } from "react";
 
 import { MovieSearch } from "../../nonPageComponents/MovieSearch/MovieSearch";
-
 import { MovieContainer } from "../../nonPageComponents/MovieContainer/MovieContainer";
 
 import {
   setSearchingFalse,
   setSearchingTrue,
 } from "../../../features/search/searchSlice";
-
 import { setMoviesSearchData } from "../../../features/moviesData/moviesDataSlice";
-
-import { setFastSearchDataNotReceived } from "../../../features/search/searchSlice";
 
 import "./SearchResultsPage.css";
 
 function SearchResultsPage() {
   const dispatch = useDispatch();
-  const fastSearchReset = dispatch(setFastSearchDataNotReceived());
   const isSearching = useSelector((state) => state.search.isSearchingNow);
 
   const { query, pageNumber } = useParams();

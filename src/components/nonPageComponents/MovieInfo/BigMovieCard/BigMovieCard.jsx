@@ -1,12 +1,8 @@
 import "./BigMovieCard.css";
-import { useSelector } from "react-redux";
 
 import PropTypes from "prop-types";
 
 function BigMovieCard(props) {
-  // const filmData = useSelector((state) => state.movies.chosenMovieInfo);
-  // console.log(props);
-
   BigMovieCard.propTypes = {
     filmData: PropTypes.object.isRequired,
   };
@@ -22,7 +18,6 @@ function BigMovieCard(props) {
     Poster,
     Metascore,
     imdbRating,
-    Awards,
     Country,
   } = props.filmData;
   return (
@@ -56,8 +51,5 @@ function BigMovieCard(props) {
     </div>
   );
 }
-
-//TITLE, YEAR, RUNTIME, GENRE, DIRECTOR, ACTORS, PLOT, POSTER, METASCORE
-//IMDBRATING, AWARDS, COUNTRY
 
 export { BigMovieCard };

@@ -1,6 +1,7 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import { Input } from "antd";
 
-import { useSelector, useDispatch } from "react-redux";
 import { setUserName } from "../../../features/userAuth/userAuthSlice";
 
 function SignUpLoginInput() {

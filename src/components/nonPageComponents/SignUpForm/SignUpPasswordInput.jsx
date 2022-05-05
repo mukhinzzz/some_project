@@ -1,9 +1,9 @@
-import { Input } from "antd";
-
 import { useSelector, useDispatch } from "react-redux";
-import { setUserPassword } from "../../../features/userAuth/userAuthSlice";
 
+import { Input } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+
+import { setUserPassword } from "../../../features/userAuth/userAuthSlice";
 
 function SignUpPasswordInput() {
   const dispatch = useDispatch();
