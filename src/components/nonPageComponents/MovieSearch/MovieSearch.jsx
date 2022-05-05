@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import debounce from "lodash.debounce";
 
 import {
-  changeSearchValue,
   changeFastSearchData,
   setFastSearchDataNotReceived,
   setFastSearchDataReceived,
@@ -19,7 +18,6 @@ function MovieSearch() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const searchValue = useSelector((state) => state.search.searchValue);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const userName = localStorage.getItem("userName");
 
@@ -28,8 +26,6 @@ function MovieSearch() {
   );
 
   function updateQuery(e) {
-    dispatch(changeSearchValue(e.target.value));
-
     fetch(`http://www.omdbapi.com/?apikey=b668f6de&s=${e.target.value}&page=1`)
       .then((response) => response.json())
       .then((data) => {
@@ -40,7 +36,9 @@ function MovieSearch() {
       });
   }
 
-  const debouncedQueryUpdate = debounce(updateQuery, 300);
+  let searchValue;
+
+  const debouncedQueryUpdate = debounce(updateQuery, 700);
 
   function makeSearch() {
     if (isLoggedIn) {
@@ -59,9 +57,10 @@ function MovieSearch() {
         placeholder="Search for a movie..."
         enterButton
         onChange={(e) => {
+          searchValue = e.target.value;
           debouncedQueryUpdate(e);
         }}
-        onSearch={() => {
+        onSearch={(e) => {
           debouncedQueryUpdate.cancel();
           makeSearch();
         }}
