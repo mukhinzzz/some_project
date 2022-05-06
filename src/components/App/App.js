@@ -25,6 +25,7 @@ function App() {
         <ErrorBoundary>
           <Routes>
             <Route path="/" element={<MainPage />} />
+            <Route path="some_project" element={<MainPage />} />
             <Route path="*" element={<PageError />} />
             <Route path="signin" element={<SignInPage />} />
             <Route path="signup" element={<SignUpPage />} />
